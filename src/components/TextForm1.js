@@ -1,6 +1,10 @@
 import React ,{useState}from 'react'
 
 export default function TextForm1(props) {
+  const handelClearClick = ()=>{
+    let newText = '';
+    setText(newText);
+  }
     const handelLowClick = () =>{
         let newText = text.toLowerCase();
         setText(newText);
@@ -23,8 +27,14 @@ export default function TextForm1(props) {
         <textarea className="form-control" id="myBox" value={text} onChange={handelOnChange}rows="8" ></textarea>
       </div>
       <div >
-      <button className='btn btn-primary ' style={{ marginRight: '10px' }} onClick={handelUpClick}>Convert to UpperCase</button>
-      <button className='btn btn-primary ' style={{ marginRight: '10px' }} onClick={handelLowClick}>Convert to LowerCase</button>
+      <button className='btn btn-primary mx-1' onClick={handelUpClick}>Convert to UpperCase</button>
+      <button className='btn btn-primary mx-1' onClick={handelLowClick}>Convert to LowerCase</button>
+      <button className='btn btn-primary mx-1' onClick={handelClearClick}>Clear</button>
+      </div>
+      <p>Word Count {text.split(" ").length} characters {text.length}</p>
+      <h2>Preview</h2>
+      <div>
+        {text}
       </div>
     </div>
   )
